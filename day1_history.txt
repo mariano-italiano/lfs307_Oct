@@ -1,0 +1,123 @@
+ps -U student
+ps -ef 
+ps -U student
+vi script.sh 
+tail -f /tmp/date.log
+tail -f /tmp/date-new.log
+cat  /tmp/date-new.log | wc -l
+man rpm
+wget https://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/createrepo_c-0.20.1-2.el9.x86_64.rpm
+ls -la
+rpm -ivh createrepo_c-0.20.1-2.el9.x86_64.rpm
+wget https://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/createrepo_c-libs-0.20.1-1.el9.x86_64.rpm
+ls -la
+rpm -ivh *.rpm
+rm createrepo_c-libs-0.20.1-1.el9.x86_64.rpm
+wget https://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/createrepo_c-libs-0.20.1-2.el9.x86_64.rpm
+rpm -ivh *.rpm
+rpm -qa | grep createrepo
+rpm -e createrepo_c-libs-0.20.1-2.el9.x86_64 createrepo_c-0.20.1-2.el9.x86_64
+rpm -qa | grep createrepo
+dnf install createrepo
+dnf remove createrepo
+dnf repolist
+dnf repolist all
+dnf config-manager --enablerepo highavailability
+dnf config-manager --set-enabled  highavailability
+dnf repolist all
+dnf repolist 
+dnf config-manager --set-disabled  highavailability
+dnf repolist 
+dnf repolist all
+rpm -qa | grep nano
+dnf remove nano
+dnf provides "*nano*"
+dnf provides "*nano"
+dnf provides "*createrepo"
+dnf install createrepo_c-0.17.7-4.el9.x86_64
+dnf install createrepo
+dnf remove createrepo
+dnf remove createrepo -y
+dnf localinstall 
+dnf localinstall createrepo*
+dnf 
+dnf info nano
+dnf info sys-tools
+dnf info systools
+dnf info createrepo
+dnf info createrepo_c
+dnf grouplist
+dnf group install "Security Tools"
+dnf grouplist
+dnf history list
+dnf history undo 12 
+dnf history list
+ls -la
+mkdir local-repo
+cd local-repo/
+wget https://mirror.stream.centos.org/9-stream/AppStream/aarch64/os/Packages/kernel-rpm-macros-185-13.el9.noarch.rpm
+wget https://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/kernel-devel-matched-5.14.0-361.el9.x86_64.rpm
+wget https://mirror.stream.centos.org/9-stream/BaseOS/aarch64/os/Packages/kernel-5.14.0-366.el9.aarch64.rpm
+wget https://mirror.stream.centos.org/9-stream/AppStream/aarch64/os/Packages/kernel-doc-5.14.0-366.el9.noarch.rpm
+mv ../createrepo_c-* .
+ls -la
+pwd
+createrepo --database /root/local-repo 
+ls -la
+cd repodata
+ls -la
+less repomd.xml
+cd /etc/yum.repos.d/
+ls -la
+vi local-repo.repo
+dnf repolist
+dnf clean all 
+dnf repolist
+dnf install nano
+vi local-repo.repo
+vi centos.repo
+vi epel
+vi epel.repo 
+dnf config-manager --setdisabled MyLocalRepo
+dnf config-manager --set-disabled MyLocalRepo
+vi local-repo.repo 
+dnf config-manager --set-enabled MyLocalRepo
+vi local-repo.repo 
+dnf repolist
+cd
+dnf module list
+dnf module info -profile nginx
+dnf module info 
+dnf module info --profile nginx
+dnf module install php
+dnf module list
+dnf module remove php
+dnf module install php:7.3/minimal
+dnf module install php:8.0/minimal
+dnf module install php:8.1/minimal
+wget http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/nano-2.9.8-1.el8.x86_64.rpm
+wget https://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/nano-5.6.1-5.el9.x86_64.rpm
+ls -la
+rpm -qa | grep nano
+rpm -e nano-5.6.1-5.el9.x86_64
+rpm -qa | grep nano
+dnf localinstall nano-2.9.8-1.el8.x86_64.rpm
+rpm -qa | grep nano
+dnf versionlock nano-2.9.8-1.el8.x86_64
+dnf install 'dnf-command(versionlock)'
+dnf versionlock nano-2.9.8-1.el8.x86_64
+dnf upgrade nano
+dnf versionlock list
+dnf versionlock delete nano-0:2.9.8-1.el8.*
+dnf upgrade nano
+dnf versionlock nano-5.6.1-5.el9.*
+dnf versionlock list
+dnf versionlock nano-5.6.1-5.el9.x86_64
+dnf versionlock list
+git clone https://github.com/mariano-italiano/lfs307_Oct.git
+ls
+cd lfs307_Oct/
+mkdir day1
+history 
+history | awk '$1>642' | cut -c 8-
+history | awk '$1>642' | cut -c 8- > day1_history.txt
