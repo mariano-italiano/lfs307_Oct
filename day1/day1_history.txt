@@ -95,6 +95,28 @@ dnf module remove php
 dnf module install php:7.3/minimal
 dnf module install php:8.0/minimal
 dnf module install php:8.1/minimal
+
+dns module list
+dnf module list
+dnf module install python27
+dnf module remove python27
+dnf module remove python
+dnf module install python36
+dnf module list
+dnf module remove python36
+dnf module remove python27
+dnf module install python38
+dnf module list
+dnf module install php
+dnf module remove php
+dnf module remove php:7.4:minimal
+dnf module remove php:7.4/minimal
+dnf module install php:7.4/minimal
+dnf module reset php
+dnf module install php:7.4/minimal
+dnf module list
+dnf module install php
+
 wget http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/nano-2.9.8-1.el8.x86_64.rpm
 wget https://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/nano-5.6.1-5.el9.x86_64.rpm
 ls -la
