@@ -95,28 +95,6 @@ dnf module remove php
 dnf module install php:7.3/minimal
 dnf module install php:8.0/minimal
 dnf module install php:8.1/minimal
-
-dns module list
-dnf module list
-dnf module install python27
-dnf module remove python27
-dnf module remove python
-dnf module install python36
-dnf module list
-dnf module remove python36
-dnf module remove python27
-dnf module install python38
-dnf module list
-dnf module install php
-dnf module remove php
-dnf module remove php:7.4:minimal
-dnf module remove php:7.4/minimal
-dnf module install php:7.4/minimal
-dnf module reset php
-dnf module install php:7.4/minimal
-dnf module list
-dnf module install php
-
 wget http://mirror.centos.org/centos/8-stream/BaseOS/x86_64/os/Packages/nano-2.9.8-1.el8.x86_64.rpm
 wget https://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/nano-5.6.1-5.el9.x86_64.rpm
 ls -la
@@ -143,3 +121,65 @@ mkdir day1
 history 
 history | awk '$1>642' | cut -c 8-
 history | awk '$1>642' | cut -c 8- > day1_history.txt
+git status
+git config --global core.hookspath 'hooks' && git config --global credential.helper store
+git add .
+git commit -m "Adding day1 history file"
+git push
+git status 
+mv day1_history.txt day1/
+git add .
+git commit -m "Adding day1 history file"
+git push
+cp -rp /etc/yum.repos.d/local-repo.repo day1/
+git add .
+git commit -m "Adding local repo file"
+gi tpush
+git push
+git pull
+cd
+free -m
+cat /proc/meminfo 
+cat /proc/cpuinfo 
+cat /proc/cpuinfo  | grep processor
+cat /proc/cpuinfo  | grep processor | grep vt
+vmstat 
+vmstat 5
+nmap 192.168.1.90/24
+nmap 192.168.1.90/32
+ip a s
+ethtool -S ens33 
+vmstat 
+ip -s link
+ethtool -S ens33 | grep -i error
+netstat 
+netstat -atuplvn
+ss -atuplvn
+ss -ltuna
+dnf install netstat
+dnf provides "*netstat"
+vmstat 2
+iostat 
+netstat -i
+sar
+man sar
+vi /etc/cron.d/0hourly 
+vi /etc/cron.hourly/
+htop
+top
+uptime
+man uptime
+top
+top -h
+top
+systemctl status tuned
+systemctl install tuned
+dnf install tuned
+systemctl start tuned
+tuned-adm list
+tuned-adm active
+tuned-adm profile balanced
+tuned-adm recommend 
+tuned-adm profile virtual-guest 
+history | grep -i awk
+history | awk '$1>642' | cut -c 8- > lfs307_Oct/day1/day1_history.txt
