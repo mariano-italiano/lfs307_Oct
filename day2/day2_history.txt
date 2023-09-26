@@ -240,3 +240,93 @@ cd
 cd lfs307_Oct/day2/
 less day2_history.txt 
 history | awk '$1>904' | cut -c 8- > day2_history.txt 
+git add .
+git commit -m "Adding day2 history file"
+git push
+cd
+cat /proc/partitions 
+gdisk /dev/sdb
+pvs
+echo "- - -" > /sys/class/scsi_host/host2/scan 
+cat /proc/partitions 
+gdisk /dev/sdd
+cat /proc/partitions 
+gdisk /dev/sdd
+cat /proc/partitions 
+mkswap /dev/sdd1
+pvcreate /dev/sdd2
+vgcreate vg_swap /dev/sdd2
+lvcreate -L 200M -n lv_swap vg_swap 
+lvcreate -l 49 -n lv_swap vg_swap 
+lvs
+mkswap /dev/mapper/vg_swap-lv_swap 
+swapon -s
+lsblk
+swapon /dev/mapper/vg_swap-lv_swap
+swapon -s
+swapon /dev/sdd1
+swapon -s
+vi /etc/fstab 
+cat /proc/swaps
+swapoff /dev/sdd1
+cat /proc/swaps
+cd /app0/
+ls -la
+ls -lah
+mkswap bigfile3
+swapon bigfile3
+swapon -s
+lvcreate -h
+cd
+cat /proc/partitions 
+lvs
+vgs
+pvs
+umount /app0 
+cd
+df -hT
+umount /app0 
+swapoff -a
+swapon -s
+swapon -a
+swapon -s
+lvremove /dev/vg_swap/lv_swap 
+umount /app0 
+lvs
+lvremove /dev/vg0/lv0 
+lvs
+vgs
+vgremove vg0 
+vgremove vg_swap 
+vgs
+pvremove /dev/sdb
+pvremove /dev/sdc
+pvremove /dev/sdd2
+pvs
+wipefs -a /dev/sdb
+wipefs -a /dev/sdc
+wipefs -a /dev/sdd
+cat /proc/partitions 
+echo "- - -" > /sys/class/scsi_host/host2/scan 
+cat /proc/partitions 
+partprobe 
+cat /proc/partitions 
+dnf install mdadm
+mdadm -h
+man mdadm
+mdadm -E /dev/sd[c-e]
+mdadm --create /dev/md5 --raid-devices=3 --level=5 /dev/sd[c-e]
+mdadm -D /dev/md5
+cat /proc/mdstat 
+echo "- - -" > /sys/class/scsi_host/host2/scan 
+cat /proc/partitions 
+partprobe 
+cat /proc/partitions 
+echo "- - -" > /sys/class/scsi_host/host0/scan 
+echo "- - -" > /sys/class/scsi_host/host1/scan 
+cat /proc/partitions 
+echo "- - -" > /sys/class/scsi_host/host2/scan 
+cat /proc/partitions 
+cd lfs307_Oct/day2
+tail -2 day2_history.txt 
+history | awk '$1>904' | cut -c 8- > day2_history.txt
