@@ -1,22 +1,3 @@
-ln -s myOsPackages softlink
-ls -lai
-vi softlink 
-ln myOsPackages hardlink
-ls -lai
-date
-rm softlink 
-ls -la
-ln -s myOsPackages softlink
-rm myOsPackages 
-ls -lai
-cat myOsPackages
-cat softlink
-vi softlink
-ls -lai
-cat softlink 
-cat hardlink 
-q
-ls -lai
 ln myOsPackages hardlink2
 ls -lai
 vi myOsPackages
@@ -50,7 +31,6 @@ man du
 du -hx --max-depth=1 *
 du -sh *
 du -hx --max-depth=2 *
-
 systemd-analyze 
 systemd-analyze blame 
 journalctl 
@@ -99,3 +79,164 @@ cd lfs307_Oct/
 mkdir day2
 history 
 history | awk '$1>904' | cut -c 8- > day2/day2_history.txt 
+git status
+git add .
+git commit -m "Adding day2 file"
+git push
+reboot
+cd /run/log/journal/
+ls
+cd /var/log/
+ls -la
+ls -la journal/
+journalctl -b
+journalctl 
+systemd-analyze 
+reboot
+systemd-analyze 
+journalctl 
+journalctl -b
+journalctl 
+cat /proc/partitions 
+lsblk
+blkid
+cat /proc/partitions 
+partprobe 
+cat /proc/partitions 
+for host in /sys/class/scsi_host/* ; echo "- - -" | sudo tee $host/scan; done
+for host in /sys/class/scsi_host/* ; do echo "- - -" | sudo tee $host/scan; done
+cat /proc/partitions 
+echo "- - -" > /sys/class/scsi_host/host0/scan 
+echo "- - -" > /sys/class/scsi_host/host1/scan 
+echo "- - -" > /sys/class/scsi_host/host2/scan 
+for host in /sys/class/scsi_host/* ; do echo "- - -" | sudo tee $host/scan; ls /dev/sd* ; done
+fdisk /dev/sdb
+cat /proc/partitions 
+fdisk /dev/sdb1
+fdisk /dev/sdb 
+cat /proc/partitions 
+gdisk 
+cat /proc/partitions 
+lsblk
+blkid
+cat /proc/partitions 
+gdisk /dev/sdb
+blkid
+wipefs -h
+wipefs -a /dev/sdb
+blkid
+cat /proc/partitions 
+pv
+pvs
+pvdisplay 
+vgs
+vgdisplay 
+lvs
+lvdisplay 
+pvcreate /dev/sdb
+vgs
+vgcreate -h
+vgcreate vg0 /dev/sdb
+lvcreate -h
+lvcreate -L 100M -n lv0 vg0
+pvs
+vgs
+lvs
+lvremove /dev/vg0/lv0
+lvcreate -L 200M -n lv0 vg0
+lvs
+vgs
+mkfs -h
+cd /dev/mapper/
+ls -la
+mkfs.xfs /dev/vg0/lv0
+mkdir /app0
+mount /dev/mapper/vg0-lv0 /app0/
+df -hT
+man dd
+cd 
+dd if=/dev/urandom of=/app0/bigfile1 bs=1024 count=10
+dd if=/dev/urandom of=/app0/bigfile1 bs=1024 count=1024
+dd if=/dev/urandom of=/app0/bigfile1 bs=1024 count=1G
+df -hT
+lvs
+vgs
+lvextend -L +1G /dev/vg0/lv0
+df -hT
+xfs_growfs /dev/vg0/lv0
+df -hT
+dd if=/dev/urandom of=/app0/bigfile2 bs=1024 count=1G
+df -hT
+vgs
+lvextend -l 100%FREE /dev/vg0/lv0
+lvextend -l +100%FREE /dev/vg0/lv0
+vgs
+xfs_growfs /dev/vg0/lv0
+df -hT
+dd if=/dev/urandom of=/app0/bigfile3 bs=1024 count=1G
+df -hT
+cat /etc/parti
+cat /proc/partitions 
+echo "- - -" > /sys/class/scsi_host/host2/scan 
+cat /proc/partitions 
+pvcreate /dev/sdc 
+vgextend -h
+vgextend vg0 /dev/sdc
+vgs
+df -hT
+vi /etc/fstab 
+mount -h
+man mount
+vi /etc/fstab 
+blkid
+vi /etc/fstab 
+df -hT
+umount /app0 
+df -hT
+mount -a
+df -hT
+vi /etc/fstab 
+umount /app0
+df -hT
+xfs_admin -L Application0 /dev/vg0/lv0
+blkid
+mount -a
+df -hT
+mount -o remount,ro /app0 
+df -hT
+mount 
+cd /app0/
+touch file
+mount -o remount,rw /app0 
+touch file
+rm bigfile
+rm bigfile1 
+touch file
+df -h
+ls -la /app0/
+rm /app0/bigfile2
+df -h
+ls -la
+echo "test file" > file
+cat file 
+cd
+xfsdump -f /tmp/app0.dump /app0
+umount /app0 
+lvreduce -L 1G /dev/mapper/vg0-lv0
+lvremove /dev/vg0/lv0
+lvcreate -L 1G -n lv0 vg0
+lvs
+mkfs.xfs /dev/vg0/lv0
+mount -a
+xfs_admin -L Application0 /dev/vg/lv0
+xfs_admin -L Application0 /dev/vg0/lv0
+mount -a
+df -hT
+xfsrestore -f /tmp/app0.dump /app0/
+cd /app0/
+ls -la
+df -hT
+cd
+cd lfs307_Oct/day2/
+less day2_history.txt 
+history | awk '$1>904' | cut -c 8- > day2_history.txt 
