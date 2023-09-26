@@ -1,0 +1,101 @@
+ln -s myOsPackages softlink
+ls -lai
+vi softlink 
+ln myOsPackages hardlink
+ls -lai
+date
+rm softlink 
+ls -la
+ln -s myOsPackages softlink
+rm myOsPackages 
+ls -lai
+cat myOsPackages
+cat softlink
+vi softlink
+ls -lai
+cat softlink 
+cat hardlink 
+q
+ls -lai
+ln myOsPackages hardlink2
+ls -lai
+vi myOsPackages
+vi hardlink2
+vi myOsPackages
+find / -inum 17551953
+cd /boot
+ls -la
+ls -la grub2/
+cd /home
+ls -la
+useradd test1
+ls -la
+cd /proc
+ls -la
+cat /proc/filesystems 
+cat /proc/filesystems  | grep -v "nodev"
+touch file
+cd ..
+ls -la proc
+ls -la 
+cd /sys
+ls -la
+df -hT
+ls -la /
+cd
+du -sh *
+du -sh  * | sort -h
+du -sh --max-depth=1 * 
+man du
+du -hx --max-depth=1 *
+du -sh *
+du -hx --max-depth=2 *
+
+systemd-analyze 
+systemd-analyze blame 
+journalctl 
+journalctl -k 
+journalctl -k -b -1
+journalctl 
+journalctl /sbin/crond
+which crond
+journalctl /usr/sbin/crond
+journalctl -u crond
+journalctl -b 
+journalctl --since=today
+journalctl --since"-20min"\
+journalctl --since"-20min"
+journalctl --since "-20min"
+journalctl --since "-60min"
+journalctl -p err
+journalctl -f
+journalctl -o verbose `which crond`
+journalctl --since=today _SYSTEMD_UNIT=crond.service
+journalctl --since=today _SYSTEMD_UNIT=sshd.service
+cd /run/log/
+ls
+cd journal/
+ls -la
+ls -la c82189cf478b4556b585ec7703a4bdce/
+file c82189cf478b4556b585ec7703a4bdce/system.journal 
+vi c82189cf478b4556b585ec7703a4bdce/system.journal
+cd
+ls -la /var/log/journal
+mkdir /var/log/journal
+ls -la /var/log/journal
+vi /etc/systemd/journald.conf 
+systemctl retart systemd-journald
+systemctl restart systemd-journald
+ls -la /var/log/journal
+cd /var/log
+ls
+cd journal/
+ls
+ls -la
+cd ..
+ls -la journal/
+cd
+cd lfs307_Oct/
+mkdir day2
+history 
+history | awk '$1>904' | cut -c 8- > day2/day2_history.txt 
