@@ -473,3 +473,38 @@ cd lfs307_Oct/
 cd day3/
 tail -n1 day3_history.txt 
 history | awk '$1>1001' | cut -c 8- >  day3_history.txt 
+systemctl stop firewalld.service 
+dnf install iptables-services iptables-utils
+ping vmware.com
+iptables -L -v
+iptables -F
+iptables -L -v
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+ping vmware.com
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+ping localhost
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT 
+iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT 
+ping vmware.com
+iptables -I OUTPUT 2 -p tcp --dport 53 -j ACCEPT 
+iptables -I OUTPUT 2 -p udp --dport 53 -j ACCEPT 
+ping vmware.com
+iptables -I INPUT 2 -p udp --dport 53 -j ACCEPT 
+iptables -I INPUT 2 -p tcp --dport 53 -j ACCEPT 
+ping vmware.com
+nslookup vmware.com
+iptables -L -v
+iptables -I INPUT 4 -m state --state ESTABLISHED,RELATED -j ACCEPT 
+iptables -L -v
+ping vmware.com
+iptables -A OUTPUT -p icmp -j ACCEPT 
+ping vmware.com
+history
+iptables -L -v
+iptables-save > /etc/sysconfig/iptables
+vi /etc/sysconfig/iptables
+iptables-restore < /etc/sysconfig/iptables
+iptables -L -v
+curl -v telnet://vmware.com:443
