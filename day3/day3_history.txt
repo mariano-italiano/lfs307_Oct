@@ -304,3 +304,172 @@ setfacl -d -x u:student /tmp/devops/
 rm /tmp/devops/fil*
 su - student
 history | awk '$1>1001' | cut -c 8- > lfs307_Oct/day3/day3_history.txt
+less lfs307_Oct/day3/day3_history.txt
+cd lfs307_Oct/
+git add .
+git commit -m "Add day3 history file"
+git push
+cd 
+date
+hwclock
+hwclock -s
+hwclock 0h
+hwclock -h
+date; hwclock
+timedatectl 
+dnf install chronyd
+dnf install chrony
+vi /etc/chrony.conf 
+systemctl status chronyd.service 
+chronyc sources
+timedatectl set-ntp yes
+timedatectl 
+date
+vi /etc/chrony.conf 
+systemctl restart chronyd.service 
+chronyc sources
+chronyc tracking 
+chronyc -h
+chronyc -v sources
+chronyc -c sources
+chronyc sources
+date -h
+man date
+date +%d-%m-%y
+date +%d-%m-%Y
+date +%d.%m.%Y
+ip a
+ping 192.168.1.190
+ip addr add 192.168.1.190/24 dev ens33 
+ip a
+ip a s
+ip a s ens33
+ifconfig 
+nmcli connection down ens33 ; nmcli connection up ens33
+ip a s ens33
+ip route
+ip route\
+ip route
+route -n
+ip route add 10.10.10.0/16 via 192.168.1.1
+ip route add 10.10.10.0/16 via 10.10.10.1
+ip route add 172.16.1.0/24 via 192.168.1.210
+route -n
+ip route del 172.16.1.0
+ip route del 172.16.1.0/24 
+route -n
+nmcli connection show
+nmcli device status
+ip a 
+nmcli connection show
+nmcli device status
+nmcli connection add con-name DMZ ifname ens37 type ethernet ipv4.addresses 192.168.1.190/24 gw4 192.168.1.1
+nmcli device status
+nmcli connection show
+nmcli connection down DMZ 
+nmcli connection show
+nmcli connection up DMZ 
+nmcli connection show
+nmcli connection modify DMZ ipv4.dns 192.168.1.1 
+nmcli connection modify DMZ ipv4.method manual
+nmcli connection show DMZ 
+nmcli connection down DMZ ; nmcli connection up DMZ 
+nmcli connection show DMZ 
+nmcli device show ens37
+nmcli c  edit DMZ 
+nmcli connection show DMZ 
+history
+cat .nmcli-history 
+nmcli connection show
+nmtui
+nmcli connection show DMZ 
+nmtui
+nmcli connection show DMZ 
+nmtui
+nmtui-edit
+nmtui-hostname 
+nmtui-connect 
+vi /etc/resolv.conf 
+ping vmware.copm
+ping vmware.com
+nmcli connection down ens33 ; nmcli connection up ens33 
+vi /etc/resolv.conf 
+nmtui-edit
+vi /etc/nsswitch.conf
+vi /etc/hosts
+ping vmware.com
+vi /etc/nsswitch.conf
+ping vmware.com
+vi /etc/nsswitch.conf
+nslookup vmware.com
+nslookup 
+curl -v telnet://vmware.com:443
+curl -v telnet://192.168.1.90:53
+curl -v telnet://192.168.1.90:22
+telnet vmware.com 443
+ls -la
+grep .nmcli-history save
+grep save .nmcli-history
+cat .nmcli-history | grep save
+vi .nmcli-history 
+dnf install tracepath
+dnf install traceroute
+traceroute vmware.com
+traceroute -h
+man traceroute
+traceroute -I vmware.com
+tldr 
+tldr --update
+man tldr 
+dnf install firwalld
+dnf install firewalld
+systemctl status firewalld.service 
+systemctl start firewalld.service
+systemctl status firewalld.service 
+firewall-cmd --list-all
+firewall-cmd --get-zone
+firewall-cmd --get-zonez
+firewall-cmd --get-zonezs
+firewall-cmd --get-zones
+firewall-cmd --get-default-zone 
+firewall-cmd --list-all
+firewall-cmd --zone=docker --list-all 
+firewall-cmd --zone=dmz --list-all 
+firewall-cmd --zone=public --add-service=https --permamnent
+firewall-cmd --zone=public --add-service=https --permanent
+firewall-cmd --list-all
+firewall-cmd --reload 
+firewall-cmd --list-all
+firewall-cmd --zone=public --add-port=8443/tcp --permanent 
+firewall-cmd --reload 
+firewall-cmd --list-all
+cd /usr/lib/firewalld/
+ls
+ls -la zones/
+vi zones/trusted.xml
+vi services/ssh.xml 
+vi services/nfs3.xml 
+cat /etc/services | grep nfs
+cat /etc/services | grep ntp
+cat /etc/services | grep https
+pwd
+cp -rp services/ssh.xml services/myApp1.xml
+vi services/myApp1.xml
+firewall-cmd --reload
+firewall-cmd --permanent --new-service-from-file=services/myApp1.xml --name=myApp1
+firewall-cmd --permanent --new-service-from-file=services/myApp1.xml --name=myApp
+firewall-cmd --reload
+firewall-cmd --zone=public --add-service=myApp --permanent 
+firewall-cmd --reload
+firewall-cmd --list-all
+firewall-cmd --new-zone myApp
+firewall-cmd --new-zone myApp --permanent 
+firewall-cmd --zone=myApp --add-service=myApp --permanent 
+firewall-cmd --reload
+firewall-cmd --zone=myApp --list-
+firewall-cmd --zone=myApp --list-all 
+cd 
+cd lfs307_Oct/
+cd day3/
+tail -n1 day3_history.txt 
+history | awk '$1>1001' | cut -c 8- >  day3_history.txt 
