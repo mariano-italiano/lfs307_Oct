@@ -1,0 +1,143 @@
+sysctl -a | wc -l
+cd /proc/
+ls -la
+ls
+cd net
+ls
+cd netfilter/
+ls
+/sys/
+cd /sys
+ls
+ls -la
+cd kernel/
+ls
+cd /proc/sys
+ls
+ls -la
+cd net/netfilter/
+ls
+cat nf_conntrack_timestamp
+sysctl -a | grep vm.swapp
+echo "50" > /proc/sys/vm/swappiness 
+sysctl -a | grep vm.swapp
+vi /etc/sysctl.conf 
+sysctl -a | grep vm.swapp
+sysctl -p 
+sysctl -a | grep vm.swapp
+sysctl -a | grep vm.nr_hug
+sysctl -a | grep kernel.pid
+sysctl -a | grep kernel.th
+sysctl -a | grep ip_forward
+sysctl -a | grep icmp_echo
+vi /etc/sysctl.
+vi /etc/sysctl.conf 
+sysctl -p
+cd /proc/sys
+ls 
+cd user
+ls -la
+sysctl -a | grep ^user.
+lsmod
+lsmod | sort
+lsmod | sort | wc -l
+modinfo e1000
+cd /lib/modules/5.14.0-289.el9.x86_64/
+ls -la
+pwd
+find . -type f -name '*.ko*' 
+find . -type f -name '*.ko*' | wc -l
+find . -type f -name '*.ko*' | gre e1000
+find . -type f -name '*.ko*' | grep e1000
+find . -type f -name '*.ko*' | grep vmxnet3
+vi /etc/sysctl.conf 
+sysctl -p
+vi /etc/sysctl.conf 
+cd
+sysctl -a | icmp
+sysctl -a | grep icmp
+echo 1 > net.ipv6.icmp.echo_ignore_all
+cat /etc/passwd
+id student
+ls -la /etc/shadow
+vi /etc/shadow
+chage -l student
+cat /etc/shadow | grep student
+vi /etc/login.defs 
+vi /etc/default/useradd 
+vi /etc/skel/
+ls /etc/skel/
+ls -la /etc/skel/
+mkdir /etc/myskelApp1
+cd /etc/myskelApp1
+touch app1.sh
+READE.ME
+echo "Hello $USER, this is your reademe file :) " > READE.ME
+cat READE.ME
+ls -la
+vi /etc/default/useradd 
+ls -la /home/test1/
+useradd test2
+ls -la /home/test2/
+vi /etc/skel/.bashrc 
+id test
+id test2
+vi /etc/default/useradd 
+\
+useradd -h
+useradd -g test1 -G test2 -m -d /tmp/lindauser -c "Test User Linda TN:12345" -u 2000 linda
+useradd -g test1 -G test2 -m -d /tmp/lindauser -c "Test User Linda TN12345" -u 2000 linda
+id linda
+passwd linda
+dnf install epel-release -y
+dnf install snapd –y
+dnf install snapd 
+systemtl enable --now snapd.socket
+systemctl enable --now snapd.socket
+ln s /var/lib/snapd/snap /snap
+ln -s /var/lib/snapd/snap /snap
+snap install john-the-ripper
+cd
+vi .bashrc 
+env
+cd
+which cd
+cat .bashrc 
+which cat
+display
+cp -rp /usr/bin/cat /usr/bin/display
+display .bashrc 
+mv /usr/bin/display /tmp/
+display .bashrc 
+/tmp/display .bashrc 
+ln -s /tmp/display /usr/bin/display
+display .barsh
+display .bashrc
+ls -la /usr/bin/display
+ls -la /usr/bin
+echo $PATH
+PATH="/root/.local/bin:/root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt"
+mv /tmp/display /opt/
+display .bashrc
+.net1.1 -> /opt/.net1.1
+vi .bashrc 
+chage -l
+chage -d 0 linda
+cat /etc/shadow | grep student
+chage -M 10 linda
+chage -l linda
+chage -m 1 linda
+chage -E "2023-10-10" linda
+chage -l linda
+echo $PS1
+PS1=[ ver.\v \u@\h] > 
+PS1="[ ver.\v \u@\h] >" 
+PS1="[ ver.\v \u@\h] > " 
+unset PS0
+unset PS1
+PS1="[\u@\h \W]\$"
+PS1="[\u@\h \W]\$ "
+cd lfs307_Oct/
+mkdir day3
+history
+history | awk '$1>1001' | cut -c 8- > day3/day3_history.txt
