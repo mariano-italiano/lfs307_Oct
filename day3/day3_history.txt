@@ -141,3 +141,166 @@ cd lfs307_Oct/
 mkdir day3
 history
 history | awk '$1>1001' | cut -c 8- > day3/day3_history.txt
+git status
+git add .
+git commit -m "Adding day3 file"
+git push
+cd
+userdel -h
+userdel -r test2
+userdel -r test1
+userdel -r linda
+ls -la /tmp
+id test1
+id test2
+cat /etc/passwd
+useradd test1
+cat /etc/group
+groupdel test2
+cat /etc/group
+id test1
+groupdel test1
+useradd test1
+id test1
+usermod -G student,docker test1
+id test1
+usermod -G sssd test1
+id test1
+usermod -h
+usermod -aG sssd test1 
+usermod -G student,docker test1
+id test1
+usermod -aG sssd test1 
+id test1
+vi /etc/sudoers
+visud
+vi /etc/sudoers.d/devops
+visudo
+cat /etc/passwd
+useradd linda
+useradd peter
+passwd peter
+passwd linda
+groupadd devops
+groupadd finance
+id linda; id peter
+vi /etc/group
+id linda; id peter
+visudo
+vi /etc/sudoers.d/devops 
+su -linda
+su - linda
+visudo
+su - linda
+visudo
+su - linda
+visudo
+which dns
+which dnf
+q
+visudo
+su - linda
+visudo
+su - linda
+vi /etc/sudoers.d/devops 
+su - peter
+ls -la
+touch file1
+touch file2
+ls -la
+ls -la file*
+umask
+umask 0444
+touch file2
+ls -la file2
+touch file3
+ls -la file3
+umask 0422
+touch file4
+ls -la file4
+umask 0022
+rm file3 file4
+ls -la
+ls -la file*
+chmod 764 file1
+ls -al file1
+chmod u-x file1
+ls -al file1
+chmod g+x,o-r file1
+ls -al file1
+ls -la sudo
+which sudo
+ls -la /usr/bin/sudo
+ls -la file*
+chmod 4670 file1
+ls -la file*
+chmod 4770 file1
+ls -la file*
+mkdir devops
+ls -la devops
+chown root:devops devops/
+ls -la devops
+chmod 770 devops/
+ls -la devops
+id peter
+chmod 2770 devops/
+ls -al devops/
+su - peter
+mv devops/ /tmp/
+ls -la
+cd /tmp/devops/
+ls -la .
+cd
+ls -la /tmp
+su - peter
+su - linda
+usermod -aG devops linda
+su - linda
+cd /tmp
+ls -la /tmp
+su - linda
+su - peter
+cd
+chown devops /tmp/devops
+chgrp devops /tmp/devops
+ls -la /tmp/devops
+chown devops:devops /tmp/devops/
+chown root:devops /tmp/devops/
+chown student:devops /tmp/devops/
+ls -la /tmp/devops/
+chown -R student:devops /tmp/devops/
+ls -la /tmp/devops/
+mkdir /tmp/devops/testdir
+ls -la /tmp/devops/
+chown -R student:devops /tmp/devops/
+ls -la /tmp/devops/
+getfacl /tmp/devops/
+chown root /tmp/devops/
+getfacl /tmp/devops/
+ls -la /tmp/devops/
+chown -R root /tmp/devops/
+ls -la /tmp/devops/
+getfacl /tmp/devops/
+setfacl -m u:student:rx /tmp/devops/
+getfacl /tmp/devops/
+su - student
+setfacl -m u:student:rwx /tmp/devops/
+setfacl -m u:student:--- /tmp/devops/testdir/
+su - student
+getfacl /tmp/devops/
+getfacl /tmp/devops/testdir/
+ls -la /tmp/devops/
+getfacl /tmp/devops/
+setfacl -x u:student /tmp/devops/
+getfacl /tmp/devops/
+su - student
+setfacl -m u:student:rwx /tmp/devops/
+su - student
+setfacl -x u:student /tmp/devops/testdir/
+su - student
+setfacl -d -m u:student:rwx /tmp/devops/
+su - student
+setfacl -d -x u:student /tmp/devops/
+rm /tmp/devops/fil*
+su - student
+history | awk '$1>1001' | cut -c 8- > lfs307_Oct/day3/day3_history.txt
