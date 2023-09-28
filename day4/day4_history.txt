@@ -1,0 +1,54 @@
+crontab -l
+crontab -e
+cd 
+which cd
+crontab -e
+vi mycron.sh
+chmod +x mycron.sh
+journalctl /usr/bin/crond
+journalctl /usr/bin/cron
+journalctl -u cron
+journalctl -u crond
+journalctl -u crond -f
+cat /tmp/crontest 
+crontab -l
+vi /root/mycron.sh
+tail -f /tmp/crontest
+crontab -u student -l
+crontab -u student -e
+init 3
+ls -la /lib/systemd/system/runlevel*.target
+systemctl get-default 
+ls -la /lib/systemd/system/default.target 
+systemctl set-default multi-user.target 
+ls -la /lib/systemd/system/default.target 
+systemctl daemon-reload 
+ls -la /lib/systemd/system/default.target 
+systemctl get-default 
+systemctl isolate graphical.target 
+systemctl list-units 
+systemctl list-units --type target
+systemctl list-unit-files
+systemctl list-unit-files -h
+systemctl list-unit-files --state=enabled
+systemctl list-unit-files --state=disabled
+systemctl list-units --type service
+systemctl list-units --type unit
+systemctl start firewalld.service 
+systemctl list-unit-files | grep firew
+systemctl status firewalld.service 
+systemctl enable firewalld.service 
+systemctl status firewalld.service 
+systemctl list-unit-files | grep firew
+systemctl disable --now firewalld.service 
+systemctl list-unit-files | grep firew
+systemctl status firewalld.service 
+systemctl enable --now firewalld.service 
+systemctl disable --now firewalld.service 
+git clone https://github.com/mariano-italiano/lfs307_Oct.git
+cd lfs307_Oct/
+mkdir day4
+cd day4/
+less ../day3/day3_history.txt 
+history 
+history | awk '$1>632' | cut -c 8- >  day4_history.txt
