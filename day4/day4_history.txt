@@ -318,4 +318,71 @@ ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=loc
 ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "cn:caseExactMatch:=Peter" cn homeDirectory
 ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "cn:caseExactMatch:=peter" cn homeDirectory
 ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "(&(cn:caseExactMatch:=peter)(objectClass=account))" cn homeDirectory
-history | awk '$1>632' | cut -c 8- >  lfs307_Oct/day4/day4_history.txt 
+dnf install setroubleshoot-server policycoreutils-python policycoreutils-devel -y
+semanage -h
+semanage port -l
+semanage port -l | grep http
+semanage port -l | grep squid
+semanage port -m -t squid_port_t -p tcp 8080
+semanage port -l | grep squid
+vi /etc/ssh/sshd_config
+systemctl status sshd
+systemctl restart sshd
+systemctl status sshd
+semanage port -l | grep ssh
+semanage port -m -t ssh_port_t -p tcp 2222
+semanage port -a -t ssh_port_t -p tcp 2222
+semanage port -l | grep ssh
+systemctl restart sshd
+systemctl status sshd
+semanage fcontext -l
+netstat  -vatnulp
+dnf install httpd
+dnf group list
+dnf group install "Basic Web Server"
+vi /etc/httpd/conf/httpd.conf
+mkdir /web/docs
+mkdir /web/docs -p
+vi /etc/httpd/conf/httpd.conf
+vi /etc/httpd/conf.d/account.conf
+mkdir /web/docs/account
+cd /web/docs/account
+vi index.html
+systemctl status httpd
+systemctl start httpd
+systemctl status httpd
+vi /etc/httpd/conf.d/account.conf
+systemctl start httpd
+systemctl status httpd
+vi /etc/httpd/conf.d/account.conf
+vi /etc/httpd/conf/httpd.conf
+vi /etc/httpd/conf.d/account.conf
+vi /etc/httpd/conf/httpd.conf
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf
+systemctl restart httpd
+vi /etc/httpd/conf/httpd.conf
+systemctl restart httpd
+cd ..
+ls -laZ
+ls -laZ /web/
+semanage fcontext -l
+semanage fcontext -l | grep web
+semanage fcontext -a -t http_sys_content_t "/web(/.*)?"
+semanage fcontext -a -t httpd_sys_content_t "/web(/.*)?"
+semanage fcontext -l | grep web
+ls -laZ /web/
+restorecon -Rv /web
+cd /var/log
+less messages
+cat messages | grep sealert
+sealert -l 3c7cff0b-e496-4f5a-a0e0-ffc71dee3856
+cd
+getsebool -a | grep nfs
+setsebool -P nfsd_anon_write=1
+getsebool -a | grep nfs
+cd /var/log/audit/
+ls -la
+less audit.log
+cat audit.log | grep -i avc
+cat ../messages | grep -i avc
