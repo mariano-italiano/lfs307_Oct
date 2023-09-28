@@ -52,3 +52,125 @@ cd day4/
 less ../day3/day3_history.txt 
 history 
 history | awk '$1>632' | cut -c 8- >  day4_history.txt
+vi day4_history.txt
+cd
+cd lfs307_Oct/
+git status
+git add .
+git commit -m "Adding day 4 file"
+git push
+git config --global credential.helper store
+git push
+cd
+reboot
+dnf remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
+dnf install -y yum-utils
+dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+systemctl enable --now docker.socket 
+systemctl status docker
+docker run hello-world
+docker ps -a
+docker rm -f nginx
+docker rm -f webserver 
+docker rm nice_beaver 
+docker ps
+docker ps -a
+docker run --help
+ 
+docker run -d --name web1 -p 8080:80 nginx
+docker ps
+cd /srv/
+mkdir web2
+docker run --name web2 -v /srv/web2/:/var nginx /bin/bash
+docker ps 
+docker ps -a
+docker rm web2
+docker run --name web2 -v /srv/web2/:/var nginx 
+docker ps -a
+docker rm web2 
+docker run -d --name web2 -v /srv/web2:/var nginx 
+docker ps 
+docker ps -a
+docker rm web2
+docker run -d --name web2 -v /srv/web2:/tmp nginx 
+docker ps -a
+ls -la
+cd web2/
+vi index.html
+docker exec -it --name web2 /bin/bash
+docker exec -it web2 /bin/bash
+docker rm -f web2
+docker run -d --name web2 -v /srv/web2:/tmp -p 8081:80 nginx 
+docker exec -it web2 /bin/bash
+docker info web1
+docker info -h
+docker inspect web1
+docker run -d --name web3 -m 512m --memory-reservation 256m --security-opt label=disable nginx
+docker inspect web3 | grep mem -i
+docker inspect web3 | grep -i secure
+docker inspect web3 | grep -i sec
+docker inspect web3 | grep -i security -A 10
+jq
+docker inspect web3 
+docker inspect web3 | jq '.[].State.Status'
+docker inspect web3 | jq '.[].NetworkSettings.IPAddress'
+docker inspect web1 | jq '.[].NetworkSettings.IPAddress'
+docker pull redis
+docker run -d --name test-redis redis
+docker ps -a
+docker rm test-redis
+docker stop test-redis
+docker rm test-redis
+docker rm -f web3
+docker ps -a
+cp -rp /lib/systemd/system/sshd.service /etc/systemd/system/web1.service
+vi /etc/systemd/system/web1.service
+which docker
+vi /etc/systemd/system/web1.service
+docker start --help
+docker stop --help
+vi /etc/systemd/system/web1.service
+systemctl daemon-reload 
+docker stop web1
+docker ps -a
+systemctl start web1
+systemctl status web1
+docker ps -a
+systemctl stop web1
+docker ps -a
+which docker-composer
+which docker-compose
+which docker-compos
+docker compose
+q
+docker ps -a
+vi /etc/systemd/system/web1.service
+docker compose version
+cd
+mkdir /srv/wordpress
+cd .
+cd /srv/wordpress
+vi docker-compose.yml 
+docker compose up -h
+docker compose up -d 
+docker ps -a
+docker compose down
+docker compose up -d
+docker compose down --volumes
+docker compose up -d
+vi docker-compose.yml 
+cd
+dnf install snapd
+ln -s /var/lib/snapd/ /snap
+systemctl enable --now snapd.socket 
+systemctl status snapd.socket
+systemctl enable --now snapd.service 
+systemctl status snapd.service 
+snap install lxd
+lsc list
+lxc list
+cd lfs307_Oct/
+tail -n day4/day4_history.txt 
+tail -n1 day4/day4_history.txt 
+history | awk '$1>632' | cut -c 8- >  day4/day4_history.txt 
