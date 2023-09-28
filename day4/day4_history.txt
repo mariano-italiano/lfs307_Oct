@@ -174,3 +174,148 @@ cd lfs307_Oct/
 tail -n day4/day4_history.txt 
 tail -n1 day4/day4_history.txt 
 history | awk '$1>632' | cut -c 8- >  day4/day4_history.txt 
+git add .
+git commit -m "Add day 4 history file"
+git push
+lxc list
+cat /proc/partitions 
+echo "- - -" > /sys/class/scsi_host/host2/scan 
+cat /proc/partitions 
+lxd init
+lxc list
+lxc  image list images:
+lxc  image list images: | grep focal
+lxc launch images:4c17e7144b5d ubuntu1
+lxc list
+lxc exec ubuntu1 bash
+lxc stop ubuntu1 
+lxc start ubuntu1 
+lxc exec ubuntu1 bash
+lxc stop ubuntu1 
+lxc start ubuntu1 
+lxc list
+lxc exec ubuntu1 bash
+ssh 10.83.230.128
+lxc exec ubuntu1 bash
+ip a s
+systemctl status firewalld.service 
+systemctl status iptables.service 
+iptable -L -v
+iptables -L -v
+ip a
+lxc exec ubuntu1 bash
+lxc list
+lxc  image list images: | grep red
+lxc  image list images: | grep centos
+lxc launch images:0903610be702 cenots1
+lxc list
+lxc rename cenots1 centos1
+lxc stop cenots1 
+lxc rename cenots1 centos1
+lxc start centos1 
+lxc list
+lxc exec centos1  bash
+lxc list
+lxc exec centos1 -- hostname
+lxc exec centos1 -- uname 
+lxc exec centos1 -- uname -a
+lxc profile 
+lxc profile list
+lxc profile copy default app1
+lxc profile edit app1
+lxc profile list
+lxc profile set app1 centos1
+lxc profile get default 
+lxc profile edit default 
+lxc profile remove centos1 
+lxc profile remove centos1 default 
+lxc stop centos1 
+lxc profile remove centos1 default 
+lxc profile assign centos1 app1 
+lxc profile liest
+lxc profile list
+lxc list
+lxc file push /srv/web2/index.html  ubuntu1/tmp/
+lxc exec ubuntu1 bash -- ls -la /tmp
+lxc exec ubuntu1 -- ls -la /tmp
+lxc exec ubuntu1 bash
+lxc file pull ubuntu1/tmp/u1.txt .
+ls -la u1.txt 
+cat u1.txt
+vi /etc/host
+vi /etc/hosts 
+dnf install openldap-servers openldap-clients
+dnf install openldap-servers openldap-clients --allowerasing --nobest
+systemctl status slapd
+systemctl enable --now slapd
+vi adminpw.ldif
+slappasswd 
+vi adminpw.ldif
+ldapadd --help
+ldapadd -Y EXTERNAL -H ldapi:/// -f adminpw.ldif 
+cd  /etc/openldap/schema/
+ls -la
+vi cosine.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f cosine.ldif 
+ldapadd -Y EXTERNAL -H ldapi:/// -f nis.ldif 
+ldapadd -Y EXTERNAL -H ldapi:/// -f inetorgperson.ldif 
+cd
+slappasswd
+vi ldapdomain.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f ldapdomain.ldif 
+vi domaintree.ldif
+ldapadd --help
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f domaintree.ldif 
+cat /etc/passwd
+useradd linda
+useradd peter
+passwd linda
+passwd peter
+cat /etc/passwd
+cat /etc/shadow
+wget http://mirror.centos.org/altarch/7/os/aarch64/Packages/migrationtools-47-15.el7.noarch.rpm
+rpm -ivh migrationtools-47-15.el7.noarch.rpm 
+dnf install perl
+rpm -ivh migrationtools-47-15.el7.noarch.rpm 
+cat /etc/passwd| tail -n2 
+cat /etc/passwd| tail -n2  > /passwd
+cat /etc/group| tail -n2  > group
+cat /etc/passwd| tail -n2  > passwd
+ls -la
+cd /usr/share/migrationtools/
+ls -la
+./migrate_passwd.pl /root/passwd /root/passwd.ldif
+./migrate_group.pl /root/group /root/group.ldif
+cd
+vi passwd.ldif 
+vi group
+vi group.ldif 
+vi domaintree.ldif 
+vi group.ldif 
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f group.ldif 
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f passwd.ldif 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "objectclass=account"
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "objectclass=account" cn uid homeDirecoty
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "objectclass=account" cn uid homeDirectory
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "uid=p*" cn gekos
+cp -rp passwd.ldif  patricia.ldif
+vi patricia.ldif
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f patricia.ldif 
+vi patricia.ldif 
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f patricia.ldif 
+vi patricia.ldif 
+ldapadd -x -D cn=Manager,dc=lab,dc=local -W -f patricia.ldif 
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "uid=p*" cn gekos
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "uid=p*" cn gecos
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W cn=Manager
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "(&(cn=Manager)(objectClass=organizationalRole))"
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost "(&(cn=Manager)(objectClass=organizationalRole))"
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost "cn=Manager"
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost "(&(cn=Manager)(objectClass=account))"
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "(&(cn=Manager)(objectClass=account))"
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "cn:caseExactMatch:=Peter" cn homeDirectory
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "cn:caseExactMatch:=peter" cn homeDirectory
+ldapsearch -x -b dc=lab,dc=local -H ldap://localhost -D cn=Manager,dc=lab,dc=local -W "(&(cn:caseExactMatch:=peter)(objectClass=account))" cn homeDirectory
+history | awk '$1>632' | cut -c 8- >  lfs307_Oct/day4/day4_history.txt 

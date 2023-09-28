@@ -1,0 +1,14 @@
+dn: cn=linda,ou=Groups,dc=lab,dc=local
+objectClass: posixGroup
+objectClass: top
+cn: linda
+userPassword: {crypt}x
+gidNumber: 1001
+
+dn: cn=peter,ou=Groups,dc=lab,dc=local
+objectClass: posixGroup
+objectClass: top
+cn: peter
+userPassword: {crypt}x
+gidNumber: 1002
+

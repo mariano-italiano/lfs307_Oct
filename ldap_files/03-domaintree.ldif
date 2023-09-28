@@ -1,0 +1,22 @@
+dn: dc=lab,dc=local
+objectClass: top
+objectClass: dcObject
+objectclass: organization
+o: Server Lab
+dc: lab
+
+# Create Manager role
+dn: cn=Manager,dc=lab,dc=local
+objectClass: organizationalRole
+cn: Manager
+description: Directory Manager Role
+
+# Create OU Users
+dn: ou=Users,dc=lab,dc=local
+objectClass: organizationalUnit
+ou: Users
+
+# Create OU Groups
+dn: ou=Groups,dc=lab,dc=local
+objectClass: organizationalUnit
+ou: Groups

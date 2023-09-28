@@ -1,0 +1,18 @@
+dn: uid=patricia,ou=Users,dc=lab,dc=local
+uid: patricia
+cn: patricia
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccount
+userPassword: {crypt}$6$R/YMcsWYYBB3PyWC$sAdsjYwLI8vHSfErxciJtSSlsKP1nY3TZIdRMznDkipI0jJfePftT51SkHGPrX.suy9Gs0UOmn72FwQ8v3wbL0
+shadowLastChange: 19628
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7
+loginShell: /bin/bash
+uidNumber: 1003
+gidNumber: 1002
+homeDirectory: /home/patricia
+gecos: Patricia new user
+
